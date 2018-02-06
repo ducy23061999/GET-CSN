@@ -18,9 +18,10 @@ foreach ($html_download as $key) {
 	$cut =  explode("[",$key->href);
 	$cut = explode("]",$cut[1])[0];
 	$type[$i] = $cut ;
-	$download[$i] = $key->href;
+	$download[$i] = str_replace(" ","",$key->href);
 	$i++;
 };
+echo var_dump($download);
 if (isset($_GET['s']) && !isset($_GET['type'])) {
 	$skey = str_replace(" ","+",$_GET['s']);
 	$js_arr = array (
@@ -76,7 +77,7 @@ if (isset($_GET['type']) && isset($_GET['s'])) {
 		  		array (
 		   		 0 => 
 		    		array (
-		      		'text' => $download[0],
+		      		'text' =>$download[0],
 		    		),
 		  		),
 			);
@@ -87,7 +88,7 @@ if (isset($_GET['type']) && isset($_GET['s'])) {
 		  		array (
 		   		 0 => 
 		    		array (
-		      		'text' => $download[1],
+		      		'text' =>$download[1],
 		    		),
 		  		),
 			);
@@ -98,7 +99,7 @@ if (isset($_GET['type']) && isset($_GET['s'])) {
 		  		array (
 		   		 0 => 
 		    		array (
-		      		'text' => $download[3],
+		      		'text' =>$download[3],
 		    		),
 		  		),
 			);
